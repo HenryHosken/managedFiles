@@ -5,37 +5,16 @@ namespace managedFiles
     {
         static void Main(string[] args)
         {
-            string path = @"C:\tempPast";
-            
-            StreamReader sr = null;
+            string path = @"C:\tempPast\RandonText.txt";
 
-            try
-            {
-                var folders = Directory.EnumerateDirectories(path, "*.*", SearchOption.AllDirectories);
-                Console.WriteLine("FOLDERS:");
-                foreach (string s in folders)
-                {
-                    Console.WriteLine(s);
-                }
-
-                var files = Directory.EnumerateFiles(path, "*.*", SearchOption.AllDirectories);
-                Console.WriteLine("files:");
-                foreach (string s in files)
-                {
-                    Console.WriteLine(s);
-                }
-
-                Directory.CreateDirectory(path + @"\newfolder");
-            }
-            catch (IOException e) 
-            {
-                Console.WriteLine("An error acurred");
-                Console.WriteLine(e.Message);
-            }
-            finally
-            {
-                if (sr != null) sr.Close();                
-            }
+            Console.WriteLine("DirectorySeparatorChar: " + Path.DirectorySeparatorChar);
+            Console.WriteLine("PathSepartor: " + Path.PathSeparator);
+            Console.WriteLine("GetDirectoryName: " + Path.GetDirectoryName(path));
+            Console.WriteLine("GetFileName: " + Path.GetFileName(path));
+            Console.WriteLine("GetExetension: " + Path.GetExtension(path));
+            Console.WriteLine("GetFileNameWithoutExtension: " + Path.GetFileNameWithoutExtension(path));
+            Console.WriteLine("GetFullPath: " + Path.GetFullPath(path));
+            Console.WriteLine("GetTempPath: " + Path.GetTempPath());
         }
     }
 }
